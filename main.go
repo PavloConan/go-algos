@@ -1,10 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"go-algos/algos"
 	"math/rand"
-	"time"
 )
 
 type intSlice []int
@@ -17,50 +14,36 @@ func (s intSlice) Shuffle() {
 }
 
 func main() {
-	fmt.Println("Fibonacci Recursive")
-	start := time.Now()
-	result := algos.FibonacciRecursive(40)
-	elapsed := time.Since(start)
-	fmt.Printf("Result: %d\n", result)
-	fmt.Printf("Execution time: %d microseconds\n", elapsed.Microseconds())
+	// 	algos.FibonacciRecursiveBenchmark(40)
+	// 	algos.FibonacciMemoBenchmark(40)
+	// 	algos.FibonacciBottomUpBenchmark(40)
 
-	fmt.Println("Fibonacci Memo")
-	start = time.Now()
-	result = algos.FibonacciMemo(40)
-	elapsed = time.Since(start)
-	fmt.Printf("Result: %d\n", result)
-	fmt.Printf("Execution time: %d microseconds\n", elapsed.Microseconds())
+	// 	sortedArr := make([]int, 1000000)
+	// 	for i := 0; i < 1000000; i++ {
+	// 		sortedArr[i] = i
+	// 	}
 
-	fmt.Println("Fibonacci Bottom Up")
-	start = time.Now()
-	result = algos.FibonacciBottomUp(40)
-	elapsed = time.Since(start)
-	fmt.Printf("Result: %d\n", result)
-	fmt.Printf("Execution time: %d microseconds\n", elapsed.Microseconds())
+	// 	algos.LinearSearchBenchmark(sortedArr, 900000)
+	// 	algos.BinarySearchBenchmark(sortedArr, 900000)
 
-	sortedArr := make([]int, 1000000)
-	for i := 0; i < 1000000; i++ {
-		sortedArr[i] = i
-	}
+	// 	unsortedArr := make(intSlice, 5000)
+	// 	for i := 0; i < 5000; i++ {
+	// 		unsortedArr[i] = i
+	// 	}
 
-	fmt.Println("Binary Search")
-	start = time.Now()
-	found := algos.BinarySearch(sortedArr, 900000)
-	elapsed = time.Since(start)
-	fmt.Printf("Result: %t\n", found)
-	fmt.Printf("Execution time: %d microseconds\n", elapsed.Microseconds())
+	// 	unsortedArr.Shuffle()
 
-	fmt.Println("Linear Search")
-	start = time.Now()
-	found = algos.LinearSearch(sortedArr, 900000)
-	elapsed = time.Since(start)
-	fmt.Printf("Result: %t\n", found)
-	fmt.Printf("Execution time: %d microseconds\n", elapsed.Microseconds())
+	// 	algos.BubbleSortBenchmark(unsortedArr)
 
-	unsortedArr := make(intSlice, 1000000)
-	for i := 0; i < 1000000; i++ {
-		unsortedArr[i] = 1000000 - i
-	}
+	// 	unsortedArr.Shuffle()
 
-	unsortedArr.Shuffle()
+	// 	algos.QuickSortBenchmark(unsortedArr)
+
+	// 	unsortedArr.Shuffle()
+
+	// 	algos.MergeSortBenchmark(unsortedArr)
+
+	// 	unsortedArr.Shuffle()
+
+	// 	algos.InsertionSortBenchmark(unsortedArr)
 }

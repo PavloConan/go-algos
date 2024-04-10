@@ -1,5 +1,10 @@
 package algos
 
+import (
+	"fmt"
+	"time"
+)
+
 func FibonacciMemo(n int) int {
 	m := make(map[int]int)
 	return memoRecursive(n, m)
@@ -15,4 +20,15 @@ func memoRecursive(n int, m map[int]int) int {
 	}
 
 	return m[n]
+}
+
+func FibonacciMemoBenchmark(n int) {
+	fmt.Println("==== Fibonacci Memo ====")
+	start := time.Now()
+	result := FibonacciMemo(n)
+	elapsed := time.Since(start)
+	fmt.Printf("Result for %dth item: %d\n", n, result)
+	fmt.Printf("Execution time: %d microseconds\n", elapsed.Microseconds())
+
+	fmt.Print("\n")
 }

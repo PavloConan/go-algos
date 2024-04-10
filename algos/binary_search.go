@@ -1,24 +1,40 @@
 package algos
 
-func BinarySearch(m []int, target int) bool {
-	hi := len(m) - 1
+import (
+	"fmt"
+	"time"
+)
+
+func BinarySearch(arr []int, target int) bool {
+	hi := len(arr) - 1
 	lo := 0
 
-	return search(m, hi, lo, target)
+	return search(arr, hi, lo, target)
 }
 
-func search(m []int, hi int, lo int, target int) bool {
+func search(arr []int, hi int, lo int, target int) bool {
 	if lo > hi {
 		return false
 	}
 
 	idx := (lo + hi) / 2
 
-	if m[idx] == target {
+	if arr[idx] == target {
 		return true
-	} else if m[idx] > target {
-		return search(m,m[idx-1], lo, target)
+	} else if arr[idx] > target {
+		return search(arr, idx-1, lo, target)
 	} else {
-		return search(m, hi, m[idx+1], target)
+		return search(arr, hi, idx+1, target)
 	}
+}
+
+func BinarySearchBenchmark(arr []int, target int) {
+	fmt.Println("==== Binary Search ====")
+	start := time.Now()
+	found := BinarySearch(arr, target)
+	elapsed := time.Since(start)
+	fmt.Printf("Result: %t\n", found)
+	fmt.Printf("Execution time for %d items: %d microseconds\n", len(arr), elapsed.Microseconds())
+
+	fmt.Print("\n")
 }
